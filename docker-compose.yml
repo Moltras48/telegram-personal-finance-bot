@@ -1,0 +1,13 @@
+version: '3.8' 
+
+services:
+  telegram-personal-finance-bot:
+    container_name: tg_personal_finance_bot
+    build:
+      context: . 
+      dockerfile: Dockerfile 
+    image: telegram-personal-finance-bot:latest
+    volumes:
+      - .:/telegram-personal-finance-bot
+      - ./db:/telegram-personal-finance-bot/db
+    command: ["python3", "main.py"]
